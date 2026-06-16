@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
+@Transactional
 public class UserService {
 
     private final UserRepository userRepository;
