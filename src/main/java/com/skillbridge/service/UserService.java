@@ -46,11 +46,12 @@ public class UserService {
         this.activityService = activityService;
     }
 
-    public UserDto getProfile(Long userId) {
-        User user = findUser(userId);
-        user.getUserSkills().size();
-        return DtoMapper.toUserDto(user);
-    }
+    @Transactional(readOnly = true)
+public UserDto getProfile(Long userId) {
+    User user = findUser(userId);
+    user.getUserSkills().size();
+    return DtoMapper.toUserDto(user);
+}
 
     public UserDto getUserById(Long id) {
         User user = findUser(id);
