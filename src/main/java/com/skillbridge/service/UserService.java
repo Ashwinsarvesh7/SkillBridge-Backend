@@ -121,6 +121,12 @@ public void removeSkill(Long userId, Long userSkillId) {
 }
 
 public List<UserDto> searchUsers(Long currentUserId, String skill, String category, ExperienceLevel level) {
+
+    System.out.println("===== SEARCH DEBUG =====");
+    System.out.println("skill = [" + skill + "]");
+    System.out.println("category = [" + category + "]");
+    System.out.println("level = [" + level + "]");
+
     return userRepository.searchUsers(currentUserId, skill, category, level)
             .stream()
             .map(DtoMapper::toUserDto)
