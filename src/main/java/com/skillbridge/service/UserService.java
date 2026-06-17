@@ -122,10 +122,20 @@ public void removeSkill(Long userId, Long userSkillId) {
 
 public List<UserDto> searchUsers(Long currentUserId, String skill, String category, ExperienceLevel level) {
 
+    // Debug logs
     System.out.println("===== SEARCH DEBUG =====");
     System.out.println("skill = [" + skill + "]");
     System.out.println("category = [" + category + "]");
     System.out.println("level = [" + level + "]");
+
+    // Convert empty strings to null
+    if (skill != null && skill.isBlank()) {
+        skill = null;
+    }
+
+    if (category != null && category.isBlank()) {
+        category = null;
+    }
 
     return userRepository.searchUsers(currentUserId, skill, category, level)
             .stream()
