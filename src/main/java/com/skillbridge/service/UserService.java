@@ -154,8 +154,8 @@ private int calculateCompletion(User user) {
         return Math.min(score, 100);
     }
 
-    private User findUser(Long id) {
-        return userRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("User not found"));
-    }
+   private User findUser(Long id) {
+    return userRepository.findWithSkillsById(id)
+            .orElseThrow(() -> new ResourceNotFoundException("User not found"));
+}
 }
