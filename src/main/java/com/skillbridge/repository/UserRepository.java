@@ -25,9 +25,6 @@ JOIN u.userSkills us
 JOIN us.skill s
 WHERE u.id <> :userId
 AND u.enabled = true
-AND (:skillName IS NULL OR s.name LIKE CONCAT('%', :skillName, '%'))
-AND (:category IS NULL OR s.category = :category)
-AND (:experienceLevel IS NULL OR u.experienceLevel = :experienceLevel)
 """)
 List<User> searchUsers(@Param("userId") Long userId,
                        @Param("skillName") String skillName,
