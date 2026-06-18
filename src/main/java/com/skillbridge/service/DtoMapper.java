@@ -30,11 +30,7 @@ public final class DtoMapper {
         dto.setUpdatedAt(user.getUpdatedAt());
         dto.setAverageRating(user.getAverageRating());
         dto.setTotalReviews(user.getTotalReviews());
-        if (user.getUserSkills() != null) {
-            dto.setSkills(user.getUserSkills().stream().map(DtoMapper::toUserSkillDto).collect(Collectors.toList()));
-        } else {
-            dto.setSkills(new java.util.ArrayList<>());
-        }
+        dto.setSkills(new java.util.ArrayList<>());
         return dto;
     }
 
